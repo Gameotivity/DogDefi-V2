@@ -447,7 +447,7 @@ const App = () => {
         <p className='text-[#222]'>1️⃣ pick a coin that you like</p>
         <p className='text-[#222]'>2️⃣ buy the coin on the bonding curve</p>
         <p className='text-[#222]'>3️⃣ sell at any time to lock in your profits or losses</p>
-        <p className='text-[#222]'>4️⃣ when enough people buy on the bonding curve it reaches a market cap of $69k and the token will be listed with $12k of liquidity deposited in the preferred DEX.</p>
+        <p className='text-[#222]'>4️⃣ when enough people buy on the bonding curve it reaches 150 bnb and the token will be listed with liquidity deposited in the preferred DEX.</p>
         <p className='text-[#222] mb-4'>5️⃣LP Tokens will be burned🔥</p>
         <p className='text-[#222] italic text-[14px]'>Disclaimer:</p>
         <p className='text-[#222] italic text-[14px]'>Trading tokens is highly risky / speculative. Do not invest more than you can afford to lose. Anyone can list a token, listing does not mean we endorse the token. Token prices can be extremely volatile. Be sure to follow any legal guidelines that your country specifies.</p>
@@ -689,7 +689,7 @@ const App = () => {
                 </div>
               )
             }
-            <Partner />
+            {/* <Partner /> */}
             <div
               className="grid xl:grid-cols-1 gap-4"
               style={{ marginTop: '20px' }}

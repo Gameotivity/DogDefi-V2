@@ -29,13 +29,13 @@ export const web3Clients = {
     8453: baseWeb3Client
 }
 
-export const imageUrl = 'http://localhost:8000/api/uploads/'
+export const imageUrl = 'http://82.180.155.112:8000/api/uploads/'
 //  : 'https://shitlord-fun-backend-main.onrender.com/api/uploads/'
 
-export const apiUrl = 'http://localhost:8000'
+export const apiUrl = 'http://82.180.155.112:8000'
 //  : 'https://shitlord-fun-backend-main.onrender.com'
 
-export const imageUploadUrl = 'http://localhost:8000/'
+export const imageUploadUrl = 'http://82.180.155.112:8000/'
 //  : 'https://shitlord-fun-backend-main.onrender.com/'
 
 export const ethPriceApiUrl = {

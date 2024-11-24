@@ -1165,14 +1165,14 @@ const App = () => {
                           </button>}
                     </section>
 
-                    <div
+                    {/* <div
                       className="token-info-item"
                       style={{ marginTop: '10px' }}
                     >
                       <span className="token-info-label">Current Price</span>
                       <span className="token-info-value">$
                         {((tokenPrice) / 10 ** 12).toLocaleString()}</span>
-                    </div>
+                    </div> */}
                   </div>
                 }
 
