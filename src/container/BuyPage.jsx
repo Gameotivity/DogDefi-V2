@@ -189,7 +189,7 @@ const App = () => {
           })
         }
         await waitForTransaction(config, {
-          hash: swap.hash
+          hash: swap
         })
         sendData = {
           chainId,
@@ -230,7 +230,7 @@ const App = () => {
           }
 
           await waitForTransaction(config, {
-            hash: swap.hash
+            hash: swap
           })
           sendData = {
             chainId,
@@ -259,7 +259,7 @@ const App = () => {
             args: [approveAddress, max],
           })
           await waitForTransaction(config, {
-            hash: approve.hash
+            hash: approve
           })
         }
         setInputToken(inputToken)
@@ -1135,11 +1135,9 @@ const App = () => {
                           </button>
                         </div>
                       </div>
-                      <ConnectButton />
-                      {/* {address === undefined ? (<button onClick={onConnectWallet} className='text-[16px] focus:outline-none h-[48px] flex justify-center items-center select-none font-bold text-center w-full bg-[#f0f0f0] hover:opacity-90 disabled:bg-[#646464] disabled:text-[#bbb] rounded-[24px] text-[#222]'>
-                        Connect Wallet
-                      </button>) :
-                        chain?.id === Number(chainId) ? <button onClick={onTokenSwap} className="text-[16px] focus:outline-none h-[48px] flex justify-center items-center select-none font-bold text-center w-full bg-[#f0f0f0] hover:opacity-90 disabled:bg-[#646464] disabled:text-[#bbb] rounded-[24px] text-[#222]" disabled={address !== undefined && (Number(tokenAmount) > 0 && (inputToken === 'ETH' ? accountBalance >= Number(tokenAmount) : tokenBalance >= Number(tokenAmount))) ? false : true}>
+                      {/* <ConnectButton /> */}
+                      {address === undefined ? (<ConnectButton />) :
+                        chainId == 56 || chainId == 97 ? <button onClick={onTokenSwap} className="text-[16px] focus:outline-none h-[48px] flex justify-center items-center select-none font-bold text-center w-full bg-[#f0f0f0] hover:opacity-90 disabled:bg-[#646464] disabled:text-[#bbb] rounded-[24px] text-[#222]" disabled={address !== undefined && (Number(tokenAmount) > 0 && (inputToken === 'ETH' ? accountBalance >= Number(tokenAmount) : tokenBalance >= Number(tokenAmount))) ? false : true}>
                           {
                             inputToken !== 'ETH' && tokenAllowance === 0
                               ? creating === false
@@ -1164,9 +1162,9 @@ const App = () => {
                           :
                           <button onClick={() => switchNetwork?.(chainId)} className='text-[16px] focus:outline-none h-[48px] flex justify-center items-center select-none font-bold text-center w-full bg-[#f3cc2f] hover:opacity-90 disabled:bg-[#646464] disabled:text-[#bbb] rounded-[24px] text-[#222]'>
                             Switch Network
-                          </button>} */}
+                          </button>}
                     </section>
-{/* 
+
                     <div
                       className="token-info-item"
                       style={{ marginTop: '10px' }}
@@ -1174,7 +1172,7 @@ const App = () => {
                       <span className="token-info-label">Current Price</span>
                       <span className="token-info-value">$
                         {((tokenPrice) / 10 ** 12).toLocaleString()}</span>
-                    </div> */}
+                    </div>
                   </div>
                 }
 

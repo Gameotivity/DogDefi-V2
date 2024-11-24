@@ -45,6 +45,7 @@ const App = () => {
           const ethPriceData = await ethPriceResponse.json();
           const ethPrice = ethPriceData.USD;
 
+          console.log("chainId", chainId)
           const mainInfo = await readContract(config, {
             address: getMulticallAddress(chainId),
             abi: MultiCallAbi,

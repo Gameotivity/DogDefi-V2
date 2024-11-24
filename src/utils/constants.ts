@@ -29,11 +29,14 @@ export const web3Clients = {
     8453: baseWeb3Client
 }
 
-export const imageUrl = isProduct !== 'local' ? 'http://localhost:8000/api/uploads/' : 'https://shitlord-fun-backend-main.onrender.com/api/uploads/'
+export const imageUrl = 'http://localhost:8000/api/uploads/'
+//  : 'https://shitlord-fun-backend-main.onrender.com/api/uploads/'
 
-export const apiUrl = isProduct !== 'local' ? 'http://localhost:8000' : 'https://shitlord-fun-backend-main.onrender.com'
+export const apiUrl = 'http://localhost:8000'
+//  : 'https://shitlord-fun-backend-main.onrender.com'
 
-export const imageUploadUrl = isProduct !== 'local' ? 'http://localhost:8000/' : 'https://shitlord-fun-backend-main.onrender.com/'
+export const imageUploadUrl = 'http://localhost:8000/'
+//  : 'https://shitlord-fun-backend-main.onrender.com/'
 
 export const ethPriceApiUrl = {
  1: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
@@ -43,7 +46,7 @@ export const ethPriceApiUrl = {
  137: 'https://min-api.cryptocompare.com/data/price?fsym=POL&tsyms=USD',
 }
 
-export const supportedChainIds = [bsc.id, mainnet.id, base.id, polygon.id]
+export const supportedChainIds = [bsc.id, bscTestnet.id]
 
 export const chainLogos = {
     1: '/eth.svg',

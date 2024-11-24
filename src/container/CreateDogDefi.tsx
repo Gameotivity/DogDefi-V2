@@ -125,6 +125,7 @@ const App = () => {
 
       if (logoFile && bannerFile && chainId) {
         let create
+        console.log("")
         create = await writeContract(config, {
           address: getFactoryAddress(chainId),
           abi: DogDefiFactoryAbi,
@@ -144,8 +145,9 @@ const App = () => {
             featureOption.toString()
           ],
         })
+        console.log("---------------", create)
         await waitForTransaction(config, {
-          hash: create.hash,
+          hash: create,
         })
         console.log("---------------")
         let funAddresses;
