@@ -29,11 +29,11 @@ export const web3Clients = {
     8453: baseWeb3Client
 }
 
-export const imageUrl = isProduct !== 'local' ? 'http://localhost:8000/api/uploads/' : 'https://api.blackpump.net/api/uploads/'
+export const imageUrl = isProduct !== 'local' ? 'http://localhost:8000/api/uploads/' : 'https://shitlord-fun-backend-main.onrender.com/api/uploads/'
 
-export const apiUrl = isProduct !== 'local' ? 'http://localhost:8000' : 'https://api.blackpump.net'
+export const apiUrl = isProduct !== 'local' ? 'http://localhost:8000' : 'https://shitlord-fun-backend-main.onrender.com'
 
-export const imageUploadUrl = isProduct !== 'local' ? 'http://localhost:8000/' : 'https://api.blackpump.net/'
+export const imageUploadUrl = isProduct !== 'local' ? 'http://localhost:8000/' : 'https://shitlord-fun-backend-main.onrender.com/'
 
 export const ethPriceApiUrl = {
  1: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
