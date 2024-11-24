@@ -21,7 +21,7 @@ export function SignMessage({
         })
         if (recoveredAddress) {
           const sendData = {
-            ChadAddress: ChadAddress,
+            ShitlordAddress: ChadAddress,
             sender: sender,
             content: variables?.message,
             timestamp: timestamp
