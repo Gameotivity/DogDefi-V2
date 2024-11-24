@@ -65,6 +65,7 @@
         "last 1 safari version"
     ],
     "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@types/node": "^18.7.13",
         "@types/react": "^18.0.17",
         "@types/react-dom": "^18.0.6",
