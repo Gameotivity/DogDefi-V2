@@ -91,7 +91,7 @@ const App = () => {
       }
     }
 
-    if (chainId === 56 || chainId === 97)
+    if (chainId === 56)
     fetchBalance()
   }, [])
 
@@ -307,7 +307,7 @@ const App = () => {
             <TopBar />
             <div className="max-w-7xl m-auto pt-36 pb-24 px-4 sm:px-12 sm:py-10">
               <section className="lg:mx-auto pt-8 lg:py-[30px] w-full lg:w-[741px] min-w-0">
-                { chainId === 56 || chainId === 97 ? 
+                { chainId === 56 ? 
                 <>
                   <section>
                     <section className="my-4">
@@ -795,7 +795,7 @@ const App = () => {
                         >
                           {
                             isConnected ?
-                              chainId == 56 || chainId == 97?
+                              chainId == 56 ?
                                 (
                                   <button
                                     disabled={

@@ -1137,7 +1137,7 @@ const App = () => {
                       </div>
                       {/* <ConnectButton /> */}
                       {address === undefined ? (<ConnectButton />) :
-                        chainId == 56 || chainId == 97 ? <button onClick={onTokenSwap} className="text-[16px] focus:outline-none h-[48px] flex justify-center items-center select-none font-bold text-center w-full bg-[#f0f0f0] hover:opacity-90 disabled:bg-[#646464] disabled:text-[#bbb] rounded-[24px] text-[#222]" disabled={address !== undefined && (Number(tokenAmount) > 0 && (inputToken === 'ETH' ? accountBalance >= Number(tokenAmount) : tokenBalance >= Number(tokenAmount))) ? false : true}>
+                        chainId == 56 ? <button onClick={onTokenSwap} className="text-[16px] focus:outline-none h-[48px] flex justify-center items-center select-none font-bold text-center w-full bg-[#f0f0f0] hover:opacity-90 disabled:bg-[#646464] disabled:text-[#bbb] rounded-[24px] text-[#222]" disabled={address !== undefined && (Number(tokenAmount) > 0 && (inputToken === 'ETH' ? accountBalance >= Number(tokenAmount) : tokenBalance >= Number(tokenAmount))) ? false : true}>
                           {
                             inputToken !== 'ETH' && tokenAllowance === 0
                               ? creating === false

@@ -46,7 +46,7 @@ export const ethPriceApiUrl = {
  137: 'https://min-api.cryptocompare.com/data/price?fsym=POL&tsyms=USD',
 }
 
-export const supportedChainIds = [bsc.id, bscTestnet.id]
+export const supportedChainIds = [bsc.id]
 
 export const chainLogos = {
     1: '/eth.svg',

@@ -104,7 +104,7 @@ const App = () => {
               let devAddress = mainInfo[6][i]
               let raisingPercent = Number(otherInfo[6][i]) / 100;
               let dexAddress = routerInfo[i]
-              let dexName = dexAddress === melegaRouters[chainId] ? 'MelegaSwap' : chainId === 56 || chainId === 97 ? 'PancakeSwap' : 'Uniswap'
+              let dexName = dexAddress === melegaRouters[chainId] ? 'MelegaSwap' : chainId === 56 ? 'PancakeSwap' : 'Uniswap'
               const featureTime = Number(featureInfo[i])
               const chadData = {
                 chainId,
@@ -491,7 +491,7 @@ const App = () => {
           <div className="max-w-7xl m-auto pt-36 pb-24 px-4 sm:px-12 sm:py-10">
             <div className='my-6 flex m-auto justify-center'>
               { address ? 
-              chainId === 56 || chainId === 97 ? 
+              chainId === 56 ? 
               <Link to="/CreateDogDefi" className="transform transition-transform duration-200 hover:scale-110 rounded-full bg-[#fff] px-6 py-4 text-base sm:text-xl font-bold sm:font-extrabold border border-black h-[48px] sm:h-[60px] text-[22px] flex items-center" style={{ boxShadow: "rgb(0, 0, 0) 1px 3px 0px 0px" }}>
                 Create Token
               </Link> : 
