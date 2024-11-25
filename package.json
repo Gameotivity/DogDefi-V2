@@ -21,7 +21,7 @@
         "lightweight-charts": "3.1.1",
         "lodash": "^4.17.21",
         "moment": "^2.29.4",
-        "node-sass": "^8.0.0",
+        "sass": "^1.81.0",
         "path-browserify": "^1.0.1",
         "react": "^18.2.0",
         "react-datepicker": "^6.9.0",
