@@ -29,13 +29,13 @@ export const web3Clients = {
     8453: baseWeb3Client
 }
 
-export const imageUrl = 'https://dogdefi-v2-backend.onrender.com/api/uploads/'
+export const imageUrl = 'https://shitlord-fun-backend-main.onrender.com/api/uploads/'
 //  : 'https://shitlord-fun-backend-main.onrender.com/api/uploads/'
 
-export const apiUrl = 'https://dogdefi-v2-backend.onrender.com'
+export const apiUrl = 'https://shitlord-fun-backend-main.onrender.com'
 //  : 'https://shitlord-fun-backend-main.onrender.com'
 
-export const imageUploadUrl = 'https://dogdefi-v2-backend.onrender.com/'
+export const imageUploadUrl = 'https://shitlord-fun-backend-main.onrender.com/'
 //  : 'https://shitlord-fun-backend-main.onrender.com/'
 
 export const ethPriceApiUrl = {
