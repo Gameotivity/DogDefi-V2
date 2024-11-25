@@ -66,11 +66,12 @@ const projectId = '4807d388fe495226b7fc14743af2e1d9'
 // const projectId = '474ca359092dc34eded94e781bdf7822';
 
 const metadata = {
-  name: 'My Celo App',
-  description: 'My Website description',
-  url: 'https://mywebsite.com',
-  icons: ['https://avatars.mywebsite.com/']
-};
+    name: 'AppKit',
+    description: 'AppKit Example',
+    url: 'https://web3modal.com',
+    icons: ['https://avatars.githubusercontent.com/u/37784886']
+  }
+  
 
 const chains = [
   bsc,
@@ -80,9 +81,15 @@ const chains = [
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 createWeb3Modal({
-  wagmiConfig,
-  projectId
-});
+    chains,
+    themeVariables: {
+      "--w3m-accent": "#F3CC2F",
+      "--w3m-border-radius-master": "1px"
+    },
+    projectId,
+    metadata,
+    wagmiConfig: config,
+  });
 
 // const ethereumClient = new EthereumClient(wagmiConfig, chains);
 
