@@ -74,7 +74,7 @@ const metadata = {
 
 const chains = [
   bsc,
-  bscTestnet
+  // bscTestnet
 ];
 
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
