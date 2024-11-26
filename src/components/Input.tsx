@@ -29,6 +29,7 @@ const Input: React.FC<InputProps> = props => {
         value={props.value}
         onChange={e => props.changeValue(e.target.value)}
         required
+        style={{height: "20px"}}
       />
     </div>
   )
