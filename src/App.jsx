@@ -82,14 +82,13 @@ const chains = [
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 createWeb3Modal({
-    chains,
-    themeVariables: {
-      "--w3m-accent": "#F3CC2F",
-      "--w3m-border-radius-master": "1px"
-    },
+    chains,
+    wagmiConfig,
     projectId,
-    metadata,
-    wagmiConfig: config,
+    themeVariables: {
+        "--w3m-accent": "#F3CC2F",
+        "--w3m-border-radius-master": "1px"
+      },
   });
 
 // const ethereumClient = new EthereumClient(wagmiConfig, chains);
