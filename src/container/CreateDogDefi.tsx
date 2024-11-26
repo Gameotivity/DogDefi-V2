@@ -41,6 +41,7 @@ const App = () => {
   const numberForRouter = routerAddr === 'pancakeRouter' ? 0 : 1
   const [tokenName, setTokenName] = useState('')
   const [tokenSymbol, setTokenSymbol] = useState('')
+  const [totalSupply, setTotalSupply] = useState('')
   const [tokenDescription, setTokenDescription] = useState('')
   let [loading, setLoading] = useState(false)
   let [creating, setCreating] = useState(false)
@@ -142,7 +143,7 @@ const App = () => {
               discord
             ],
             maxWallet.toString(),
-            featureOption.toString()
+            totalSupply.toString()
           ],
         })
         console.log("---------------", create)
@@ -360,6 +361,25 @@ const App = () => {
                                 type="text"
                                 changeValue={setTokenSymbol}
                                 value={tokenSymbol}
+                              />
+                            </section>
+                          </section>
+                        </section>
+
+                        <section className="flex flex-col gap-4 w-[90%]">
+                          <div className="LpBalance">
+                            <p className="Text1">
+                              Total Supply<span style={{ color: 'red' }}>*</span>
+                            </p>
+                          </div>
+                          <section className="inputPanel">
+                            <section className="inputPanelHeader w-full">
+                              <Input
+                                placeholder="Enter Total Supply"
+                                label=""
+                                type="text"
+                                changeValue={setTotalSupply}
+                                value={totalSupply}
                               />
                             </section>
                           </section>
@@ -801,6 +821,7 @@ const App = () => {
                                     disabled={
                                       tokenName === '' ||
                                       tokenSymbol === '' ||
+                                      totalSupply === '' ||
                                       tokenDescription === '' ||
                                       logoFile === null ||
                                       bannerFile === null ||
@@ -811,6 +832,7 @@ const App = () => {
                                   >
                                     {tokenName === '' ||
                                       tokenSymbol === '' ||
+                                      totalSupply === '' ||
                                       tokenDescription === '' ||
                                       logoFile === null ||
                                       bannerFile === null

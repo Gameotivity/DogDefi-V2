@@ -19,6 +19,7 @@ import {
   bscTestnet
 } from 'wagmi/chains';
 import {createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react';
+import { config } from "./config.jsx";
 
 const projectId = '4807d388fe495226b7fc14743af2e1d9'
 

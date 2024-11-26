@@ -4,6 +4,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { readContract } from '@wagmi/core'
 import '../App.css'
+import ChadAbi from '../config/DogDefiAbi.json'
 import MultiCallAbi from '../config/MultiCallAbi.json'
 import '../styles/MainContainer.css'
 import LaunchpadCard from '../components/LaunchpadCard'
@@ -30,6 +31,7 @@ const App = () => {
   const cookies = new Cookies();
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [search, setSearch] = useState('')
+  const [tokenPrice, setTokenPrice] = useState(0)
 
   useEffect(() => {
     const FetchData = async () => {
@@ -60,12 +62,12 @@ const App = () => {
             chainId: chainId
           })
 
-          const featureInfo = await readContract(config, {
-            address: getMulticallAddress(chainId),
-            abi: MultiCallAbi,
-            functionName: 'getFeaturedTimesInfo',
-            chainId: chainId
-          })
+          // const featureInfo = await readContract(config, {
+          //   address: getMulticallAddress(chainId),
+          //   abi: MultiCallAbi,
+          //   functionName: 'getFeaturedTimesInfo',
+          //   chainId: chainId
+          // })
 
           const routerInfo = await readContract(config, {
             address: getMulticallAddress(chainId),
@@ -83,6 +85,13 @@ const App = () => {
 
           if (mainInfo[0].length > 0) {
             for (let i = mainInfo[0].length - 1; i >= 0; i--) {
+              const ChadInfo = await readContract(config, {
+                address: contractAddress,
+                abi: ChadAbi,
+                functionName: 'getFunBasicInfo',
+                chainId: Number(chainId)
+              })
+
               let startTime = Number(mainInfo[0][i])
               const lpCreated = lpCreatedInfo[i]
               let progress
@@ -90,11 +99,11 @@ const App = () => {
               const virtualLpAmounts = Number(mainInfo[2][i]) * ethPrice
               const virtualLpTokenAmounts = Number(mainInfo[1][i]) / 10 ** 18
               const tokenPrice = Number(mainInfo[3][i])
-              const marketCap = (tokenPrice * 1000000000 * Number(ethPrice)) / 10 ** 12
+              setTokenPrice(tokenPrice)
               const website = otherInfo[2][i]
               const twitter = otherInfo[3][i]
               const telegram = otherInfo[4][i]
-              progress = lpCreated ? 100 : marketCap * 100 / 69000
+              progress = lpCreated ? 100 : Math.floor(Number(ChadInfo[0][10]) * 10000) / 10000 * 100 / 150
               const liquidity = virtualLpAmounts * 2
               const name = otherInfo[0][i]
               const symbol = otherInfo[1][i]
@@ -105,7 +114,8 @@ const App = () => {
               let raisingPercent = Number(otherInfo[6][i]) / 100;
               let dexAddress = routerInfo[i]
               let dexName = dexAddress === melegaRouters[chainId] ? 'MelegaSwap' : chainId === 56 ? 'PancakeSwap' : 'Uniswap'
-              const featureTime = Number(featureInfo[i])
+              // const featureTime = Number(featureInfo[i])
+              const featureTime = 0
               const chadData = {
                 chainId,
                 startTime: startTime,
@@ -413,6 +423,7 @@ const App = () => {
               raisingPercent={raisingPercent}
             // onMouseEnter={handleMouseEnter}
             // onMouseLeave={handleMouseLeave}
+              tokenPrice={tokenPrice}
             />
           )
         )}

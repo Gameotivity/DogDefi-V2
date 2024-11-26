@@ -67,7 +67,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "featuredTime",
+						"name": "tSupply",
 						"type": "uint256"
 					}
 				],
@@ -207,19 +207,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "featuredTime",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "getAllPrices",
 		"outputs": [
 			{
@@ -258,9 +245,9 @@
 		"name": "getFunBasicInfo",
 		"outputs": [
 			{
-				"internalType": "uint256[10]",
+				"internalType": "uint256[11]",
 				"name": "",
-				"type": "uint256[10]"
+				"type": "uint256[11]"
 			},
 			{
 				"internalType": "string[7]",
@@ -281,11 +268,6 @@
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -557,19 +539,6 @@
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "tokenPrice",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",

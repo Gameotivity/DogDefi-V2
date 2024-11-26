@@ -88,10 +88,10 @@ const ClaimCard = ({
   volume,
   description,
   ethPrice,
-  lpCreated
+  lpCreated,
+  realEthLp
 }) => {
-  let marketCap = (tokenPrice * 1000000000 * Number(ethPrice)) / 10 ** 12
-  let progress = marketCap * 100 / 69000
+  let progress = Math.floor(realEthLp * 10000) / 10000 * 100 / 150
   if (lpCreated) {
     progress = 100
   }
@@ -162,7 +162,12 @@ const ClaimCard = ({
               <span className="text-white font-bold text-[20px]">{tokenSymbol}</span>
               <span className="font-semibold text-[#919191] text-[16px]">{tokenName}</span>
             </div>
-          </div>
+            <div className="token-info-item ml-auto mt-[10px]">
+              <span className="token-info-label mr-[10px]">Current Price:</span>
+              <span className="token-info-value">$
+                {(Math.floor((tokenPrice) / 10 ** 6) / 10 ** 6).toLocaleString()}</span>
+            </div>
+            </div>
           <SocialSection website={website} telegram={telegram} twitter={twitter} />
         </div>
 

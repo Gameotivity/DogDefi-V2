@@ -10,7 +10,6 @@ import ChadAbi from '../config/DogDefiAbi.json'
 import TokenAbi from '../config/TokenAbi.json'
 import RouterAbi from '../config/RouterAbi.json'
 import '../styles/MainContainer.css'
-import MaxInput from '../components/MaxInput.tsx'
 import { readContract, writeContract } from '@wagmi/core'
 import { waitForTransaction } from '@wagmi/core'
 // import { useWeb3Modal } from '@web3modal/react'
@@ -22,8 +21,6 @@ import bnb from '../icons/ETH-logo.svg'
 import eth from '../icons/ETH.svg'
 import pol from '../icons/polygon.svg'
 import pancakeBannerImg from '../icons/pancake-banner.png'
-import uniswapBannerImg from '../icons/uniswap-banner.png'
-import melegaBannerImg from '../icons/melega-banner.png'
 import swapIcon from '../icons/swapIcon.svg'
 import TopBar from '../components/TopBar'
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -34,7 +31,7 @@ import CustomRadioButton from '../components/CustomRadioButton'
 import CopyIcon from '../icons/copy.svg'
 import rot13 from '../../utils/encode.ts'
 import { Link } from 'react-router-dom'
-import { web3Clients, imageUrl, apiUrl, ethPriceApiUrl, scanApiLinks, apiKeys, chainNames1, scanLinks, chainNames, coinNames, melegaRouters, publicClient } from '../utils/constants.ts'
+import { web3Clients, imageUrl, apiUrl, ethPriceApiUrl, scanApiLinks, apiKeys, chainNames1, scanLinks, coinNames } from '../utils/constants.ts'
 import { getWethAddress, getRouterAddress, getDefaultAddress } from '../utils/addressHelpers.ts'
 import ConnectButton from '../components/ConnectButton.jsx';
 import { config } from '../config.jsx';
@@ -75,6 +72,7 @@ const App = () => {
   let [tokenAllowance, setTokenAllowance] = useState(0)
   const [virtualTokenLp, setVirtualTokenLp] = useState()
   const [tokenPrice, setTokenPrice] = useState(0)
+  const [realEthLp, setRealEthLp] = useState(0)
   let [creating, setCreating] = useState(false)
   const [website, setWebsite] = useState()
   const [twitter, setTwitter] = useState()
@@ -322,6 +320,8 @@ const App = () => {
           chainId: Number(chainId)
         })
 
+        console.log("token price", ChadInfo, chainId, ChadAddress)
+
         setTokenPriceDatas(GetAllPrices)
         setTokenName(ChadInfo[1][0])
         setTokenSymbol(ChadInfo[1][1])
@@ -329,6 +329,7 @@ const App = () => {
         setVirtualLiquidiity(Number(ChadInfo[0][5]) / 10 ** 18)
         setVirtualTokenLp(Number(ChadInfo[0][4]) / 10 ** 18)
         setTokenPrice(Number(ChadInfo[0][8]))
+        setRealEthLp(Number(ChadInfo[0][10]))
         setMaxBuyAmount(Number(ChadInfo[0][2]))
         setWebsite(ChadInfo[1][2])
         setTwitter(ChadInfo[1][3])
@@ -752,6 +753,7 @@ const App = () => {
                     description={description}
                     ethPrice={ethPrice}
                     lpCreated={lpCreated}
+                    realEthLp={realEthLp}
                   />
                   <div className=''>
                     {lpCreated ?
@@ -896,14 +898,12 @@ const App = () => {
                               className="flex justify-end my-4"
                               style={{ textAlign: 'right' }}
                             >
-                              {/* Render the "First Page" button */}
                               <button
                                 className="px-2 py-1 mx-1 bg-primary text-white rounded-lg border border-[#f3cc2f]"
                                 onClick={() => handleTransactionPageChange(1)}
                               >
                                 &lt;&lt;
                               </button>
-                              {/* Render the "Previous Page" button */}
                               <button
                                 className="px-2 py-1 mx-1 bg-primary text-white rounded-lg border border-[#f3cc2f]"
                                 onClick={() =>
@@ -941,7 +941,6 @@ const App = () => {
                                   )
                                 }
                               })}
-                              {/* Render the "Next Page" button */}
                               <button
                                 className="px-2 py-1 mx-1 bg-primary text-white rounded-lg border border-[#f3cc2f]"
                                 onClick={() =>
@@ -955,7 +954,6 @@ const App = () => {
                               >
                                 &gt;
                               </button>
-                              {/* Render the "Last Page" button */}
                               <button
                                 className="px-2 py-1 mx-1 bg-primary text-white rounded-lg border border-[#f3cc2f]"
                                 onClick={() =>
@@ -1060,11 +1058,11 @@ const App = () => {
                 </p>*/}
                 {lpCreated ?
                   <a
-                    href={routerAddress === melegaRouters[chainId] ? `https://www.melega.finance/swap/?chain=${chainNames1[chainId]}&outputCurrency=${tokenAddress}` : chainId === '56' || chainId === '97' ? `https://pancakeswap.finance/swap?chain=${chainNames1[chainId]}&outputCurrency=${tokenAddress}` : `https://app.uniswap.org/swap?chain=${chainNames[chainId]}&inputCurrency=ETH&outputCurrency=${tokenAddress}`}
+                    href={`https://pancakeswap.finance/swap?chain=${chainNames1[chainId]}&outputCurrency=${tokenAddress}`}
                     target='_blank'
                   >
                     <div className='overflow-hidden rounded-[25px] sm:mx-0 mx-[-15px]'>
-                      <img src={routerAddress === melegaRouters[chainId] ? melegaBannerImg : chainId === '56' || chainId === '97' ? pancakeBannerImg : uniswapBannerImg} className='' />
+                      <img src={pancakeBannerImg} className='' />
                     </div>
                   </a>
                   :
@@ -1165,14 +1163,14 @@ const App = () => {
                           </button>}
                     </section>
 
-                    {/* <div
+                    <div
                       className="token-info-item"
                       style={{ marginTop: '10px' }}
                     >
                       <span className="token-info-label">Current Price</span>
                       <span className="token-info-value">$
-                        {((tokenPrice) / 10 ** 12).toLocaleString()}</span>
-                    </div> */}
+                        {(Math.floor((tokenPrice) / 10 ** 6) / 10 ** 6).toLocaleString()}</span>
+                    </div>
                   </div>
                 }
 
