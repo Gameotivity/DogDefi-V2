@@ -179,9 +179,9 @@ const ClaimCard = ({
         <div className="launchpad-progress-container bg-[#101010] p-4 rounded-[16px] flex flex-col gap-6">
           <div className="h-6">
             <div className="relative w-full h-full bg-[#00f3ef17] rounded-[16px]">
-              <div className=" items-center overflow-hidden rounded-[16px] launchpad-progress-bar-filled h-full" style={{ width: `${progress}%` }}></div>
+              <div className=" items-center overflow-hidden rounded-[16px] launchpad-progress-bar-filled h-full" style={{ width: `${progress / 10**18}%` }}></div>
               <span className="select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[16px]">
-                {progress.toFixed(3)}%
+                {(progress / 10 ** 18).toFixed(3)}%
               </span>
             </div>
           </div>

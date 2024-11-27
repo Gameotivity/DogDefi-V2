@@ -5,7 +5,7 @@ import NotFound from "./container/NotFound";
 import BuyPage from "./container/BuyPage";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params';
-import { WagmiConfig} from 'wagmi'
+import { WagmiConfig, WagmiProvider} from 'wagmi'
 import Profile from "./container/Profile.tsx";
 import EditProfile from "./container/EditProfile";
 // import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
@@ -93,7 +93,7 @@ const App = () => {
     <Router>
       <QueryParamProvider>
         <div>
-          <WagmiConfig config={wagmiConfig}>
+          <WagmiProvider config={wagmiConfig}>
             <Toaster
               position="top-right"
               reverseOrder={true}
@@ -140,7 +140,7 @@ const App = () => {
                 <NotFound />
               </Route>
             </Switch>
-          </WagmiConfig>
+          </WagmiProvider>
           {/* <Web3Modal
             projectId={projectId}
             ethereumClient={ethereumClient}
