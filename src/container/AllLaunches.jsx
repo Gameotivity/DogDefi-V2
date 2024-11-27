@@ -22,6 +22,7 @@ import Slider from '../components/Slider.jsx'
 import footericon from '../../public/img/dogdefi.png'
 import { config } from '../config.jsx'
 import { useAccount } from 'wagmi'
+import { isConstructorDeclaration } from 'typescript'
 
 const App = () => {
   const { address, chainId } = useAccount();
@@ -94,10 +95,12 @@ const App = () => {
                 functionName: 'getFunBasicInfo',
                 chainId: Number(chainId)
               })
+
               const virtualLpAmounts = Number(mainInfo[2][i]) * ethPrice
               const virtualLpTokenAmounts = Number(mainInfo[1][i]) / 10 ** 18
               const tokenPrice = Number(mainInfo[3][i]) * ethPrice / 10 ** 12
               setTokenPrice(tokenPrice)
+
               const website = otherInfo[2][i]
               const twitter = otherInfo[3][i]
               const telegram = otherInfo[4][i]

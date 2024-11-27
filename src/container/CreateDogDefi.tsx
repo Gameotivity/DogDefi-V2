@@ -54,7 +54,6 @@ const App = () => {
   const [depositAmount, setDepositAmount] = useState('')
   const [accountBalance, setAccountBalance] = useState(0)
 
-  console.log("address", address)
   // const onConnectWallet = async () => {
   //   await open()
   //   setFirstConnect(true)
@@ -83,12 +82,10 @@ const App = () => {
       //   chainId: chainId
       // })
       // setIsDiscountable(Number(balance) / 10 ** 18 >= 10000 ? true : false)
-      console.log("address", address)
       if (address) {
         let accountBalance = await web3Clients[chainId].eth.getBalance(address)
         accountBalance = web3Clients[chainId].utils.fromWei(accountBalance, 'ether')
         setAccountBalance(accountBalance)
-        console.log("accountBalance", accountBalance)
       }
     }
 
@@ -126,7 +123,6 @@ const App = () => {
 
       if (logoFile && bannerFile && chainId) {
         let create
-        console.log("")
         create = await writeContract(config, {
           address: getFactoryAddress(chainId),
           abi: DogDefiFactoryAbi,
@@ -143,14 +139,12 @@ const App = () => {
               discord
             ],
             maxWallet.toString(),
-            BigInt(totalSupply * 10 ** 18).toString()
+            (BigInt(totalSupply) * BigInt(10 ** 18)).toString()
           ],
         })
-        console.log("---------------", create)
         await waitForTransaction(config, {
           hash: create,
         })
-        console.log("---------------")
         let funAddresses;
         funAddresses = await readContract(config, {
           address: getFactoryAddress(chainId),
