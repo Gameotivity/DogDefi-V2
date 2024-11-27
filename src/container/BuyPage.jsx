@@ -1092,6 +1092,7 @@ const App = () => {
                                 value={tokenAmount}
                                 onChange={e => setAmount(e.target.value)}
                                 required
+                                style={{height: "20px"}}
                               />
                               <div className="flex gap-2 items-center">
                                 <span className="text-[#919191] text-[12px] font-semibold flex gap-1">
@@ -1119,6 +1120,7 @@ const App = () => {
                                 value={tokenOutAmount}
                                 className="text-white text-right text-[20px] font-bold"
                                 disabled
+                                style={{height: "20px"}}
                               />
                               <div className="flex gap-2 items-center">
                                 <span className="text-[#919191] text-[12px] font-semibold">
