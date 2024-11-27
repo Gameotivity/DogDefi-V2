@@ -104,7 +104,9 @@ const App = () => {
               const website = otherInfo[2][i]
               const twitter = otherInfo[3][i]
               const telegram = otherInfo[4][i]
-              progress = lpCreated ? 100 : Math.floor(Number(ChadInfo[0][10]) * 10000) / 10000 * 100 / 150
+              progress = lpCreated ? 100 : Math.floor(Number(ChadInfo[0][10]) * 10000) / 10000 * 100 / 150 / 10**18
+              console.log("Number(ChadInfo[0][10])", ChadInfo[1][0], Number(ChadInfo[0][10]), progress)
+
               const liquidity = virtualLpAmounts * 2
               const name = otherInfo[0][i]
               const symbol = otherInfo[1][i]

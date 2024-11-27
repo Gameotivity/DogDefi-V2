@@ -35,6 +35,7 @@ import { web3Clients, imageUrl, apiUrl, ethPriceApiUrl, scanApiLinks, apiKeys, c
 import { getWethAddress, getRouterAddress, getDefaultAddress } from '../utils/addressHelpers.ts'
 import ConnectButton from '../components/ConnectButton.jsx';
 import { config } from '../config.jsx';
+import { isConstructorDeclaration } from 'typescript';
 
 const App = () => {
   const ethIcon = {
@@ -328,6 +329,7 @@ const App = () => {
         setVirtualLiquidiity(Number(ChadInfo[0][5]) / 10 ** 18)
         setVirtualTokenLp(Number(ChadInfo[0][4]) / 10 ** 18)
         setTokenPrice(Number(ChadInfo[0][8]) * ethPrice / 10 ** 12)
+        console.log("token price", tokenPrice)
         setTotalSupply(Number(ChadInfo[0][0]))
         setRealEthLp(Number(ChadInfo[0][10]))
         setMaxBuyAmount(Number(ChadInfo[0][2]))

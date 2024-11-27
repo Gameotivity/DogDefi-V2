@@ -123,6 +123,7 @@ const App = () => {
 
       if (logoFile && bannerFile && chainId) {
         let create
+        console.log("(BigInt(totalSupply) * BigInt(10 ** 18)).toString()", (BigInt(totalSupply) * BigInt(10 ** 18)).toString())
         create = await writeContract(config, {
           address: getFactoryAddress(chainId),
           abi: DogDefiFactoryAbi,

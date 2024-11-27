@@ -318,10 +318,10 @@ const TopBar = () => {
             </div>
             <div className='flex flex-row items-center gap-4'>
               <div className='sm:flex hidden flex-row gap-4'>
-                <a href="https://twitter.com/Dogelove84" target="_blank" className="p-2  text-white">
+                <a href="https://x.com/dogdefifun?s=21&t=TLsvb7r4Zzlvdryamr0DrQ" target="_blank" className="p-2  text-white">
                   <img src={iconX1} className='w-[24px] h-[24px]' />
                 </a>
-                <a href="https://t.me/Dogelove84" target="_blank" className="p-2">
+                <a href="https://t.me/+dI9ZIabbJoUyN2E1" target="_blank" className="p-2">
                   <img src={iconTg1} className='w-[24px] h-[24px]' />
                 </a>
               </div>

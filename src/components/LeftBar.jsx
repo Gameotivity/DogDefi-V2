@@ -167,7 +167,7 @@ const LeftBar = ({ isExpanded, onHamburgerClick }) => {
             <hr className="left-bar-hr" />
             <li>
               <a
-                href="https://t.me"
+                href="https://t.me/+dI9ZIabbJoUyN2E1"
                 target="_blank"
                 rel="noreferrer"
                 className="left-bar-link"
@@ -183,7 +183,7 @@ const LeftBar = ({ isExpanded, onHamburgerClick }) => {
             </li>
             <li>
               <a
-                href="https://x.com"
+                href="https://x.com/dogdefifun?s=21&t=TLsvb7r4Zzlvdryamr0DrQ"
                 target="_blank"
                 rel="noreferrer"
                 className="left-bar-link"

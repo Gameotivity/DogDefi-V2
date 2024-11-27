@@ -47,7 +47,7 @@ function Faq() {
                   These are the most frquent asked questions about
                   dogdefi.fun. Can't find What you are looking for?
                 </div>
-                <a href="https://t.me/Dogelove84" target="_blank" className="p-2">
+                <a href="https://t.me/+dI9ZIabbJoUyN2E1" target="_blank" className="p-2">
                   <div
                     className="Text1 text-[11px] lg:text-[14px]"
                     style={{
