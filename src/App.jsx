@@ -67,8 +67,8 @@ const projectId = '75f0ab21a52cbff7e566bcc9be983646'
 // const projectId = '474ca359092dc34eded94e781bdf7822';
 
 const metadata = {
-    name: 'AppKit',
-    description: 'AppKit Example',
+    name: 'Dogdefi',
+    description: 'Dogdefi Wagmi',
     url: 'https://dogdefi.fun',
     icons: ['https://avatars.githubusercontent.com/u/37784886']
   }
