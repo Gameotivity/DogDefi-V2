@@ -89,7 +89,8 @@ const ClaimCard = ({
   description,
   ethPrice,
   lpCreated,
-  realEthLp
+  realEthLp,
+  totalSupply
 }) => {
   let progress = Math.floor(realEthLp * 10000) / 10000 * 100 / 150
   if (lpCreated) {
@@ -165,7 +166,7 @@ const ClaimCard = ({
             <div className="token-info-item ml-auto mt-[10px]">
               <span className="token-info-label mr-[10px]">Current Price:</span>
               <span className="token-info-value">$
-                {(Math.floor((tokenPrice) / 10 ** 6) / 10 ** 6).toLocaleString()}</span>
+                {Math.floor(tokenPrice*10**7)/10**7}</span>
             </div>
             </div>
           <SocialSection website={website} telegram={telegram} twitter={twitter} />
@@ -186,7 +187,7 @@ const ClaimCard = ({
           </div>
           <ChadPumpInfoSection
             tokenSupplyLiquidity={tokenSupplyLiquidity}
-            marketCap={tokenSupplyUSD / tokenSupplyLiquidity / 2 * 10 ** 9}
+            marketCap={tokenPrice * totalSupply}
             tokenSupplyUSD={tokenSupplyUSD}
             tokenUnsoldTokens={tokenUnsoldTokens}
             maxBuyAmount={maxBuyAmount}

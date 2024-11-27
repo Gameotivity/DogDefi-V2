@@ -143,7 +143,7 @@ const App = () => {
               discord
             ],
             maxWallet.toString(),
-            totalSupply.toString()
+            Number(totalSupply * 10 ** 18).toString()
           ],
         })
         console.log("---------------", create)

@@ -96,6 +96,7 @@ const App = () => {
 
   const [lpCreated, setLpCreated] = useState(false)
   const [ethPrice, setEthPrice] = useState()
+  const [totalSupply, setTotalSupply] = useState(0)
   // const { open } = useWeb3Modal()
 
   const [firstConnect, setFirstConnect] = useState(false)
@@ -320,15 +321,14 @@ const App = () => {
           chainId: Number(chainId)
         })
 
-        console.log("token price", ChadInfo, chainId, ChadAddress)
-
         setTokenPriceDatas(GetAllPrices)
         setTokenName(ChadInfo[1][0])
         setTokenSymbol(ChadInfo[1][1])
         setTokenAddress(ChadInfo[2][1])
         setVirtualLiquidiity(Number(ChadInfo[0][5]) / 10 ** 18)
         setVirtualTokenLp(Number(ChadInfo[0][4]) / 10 ** 18)
-        setTokenPrice(Number(ChadInfo[0][8]))
+        setTokenPrice(Number(ChadInfo[0][8]) * ethPrice / 10 ** 12)
+        setTotalSupply(Number(ChadInfo[0][0]))
         setRealEthLp(Number(ChadInfo[0][10]))
         setMaxBuyAmount(Number(ChadInfo[0][2]))
         setWebsite(ChadInfo[1][2])
@@ -367,7 +367,7 @@ const App = () => {
     if (creating === false) {
       FetchData()
     }
-  }, [chainId, creating, ChadAddress, address, web3Clients[chainId].eth, web3Clients[chainId].utils, inputToken, tokenBalance])
+  }, [chainId, creating, ChadAddress, address, web3Clients[chainId].eth, web3Clients[chainId].utils, inputToken, tokenBalance, tokenPrice])
 
   const getApi = async () => {
     const GetAllPrices = await readContract(config, {
@@ -754,6 +754,7 @@ const App = () => {
                     ethPrice={ethPrice}
                     lpCreated={lpCreated}
                     realEthLp={realEthLp}
+                    totalSupply={totalSupply}
                   />
                   <div className=''>
                     {lpCreated ?
@@ -1168,8 +1169,7 @@ const App = () => {
                       style={{ marginTop: '10px' }}
                     >
                       <span className="token-info-label">Current Price</span>
-                      <span className="token-info-value">$
-                        {(Math.floor((tokenPrice) / 10 ** 6) / 10 ** 6).toLocaleString()}</span>
+                      <span className="token-info-value">$ {Math.floor(tokenPrice*10**7)/10**7}</span>
                     </div>
                   </div>
                 }

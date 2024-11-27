@@ -130,7 +130,7 @@ const LaunchpadCard = ({
           </div>
           <div className="launchpad-header-container flex">
             <p className="launchpad-token-name left-aligned">{tokenName}</p>
-            <p className="launchpad-token-name right-aligned">${(Math.floor((tokenPrice) / 10 ** 6) / 10 ** 6).toLocaleString()}</p>
+            <p className="launchpad-token-name right-aligned">${Math.floor(tokenPrice*10**7)/10**7}</p>
           </div>
           <div className="flex flex-row items-center gap-2 text-[12px]">
             <div className='text-[#00f3ef]'>Created by:</div>

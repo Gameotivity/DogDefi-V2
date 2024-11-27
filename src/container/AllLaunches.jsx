@@ -47,7 +47,6 @@ const App = () => {
           const ethPriceData = await ethPriceResponse.json();
           const ethPrice = ethPriceData.USD;
 
-          console.log("chainId", chainId)
           const mainInfo = await readContract(config, {
             address: getMulticallAddress(chainId),
             abi: MultiCallAbi,
@@ -85,20 +84,19 @@ const App = () => {
 
           if (mainInfo[0].length > 0) {
             for (let i = mainInfo[0].length - 1; i >= 0; i--) {
+              let startTime = Number(mainInfo[0][i])
+              const lpCreated = lpCreatedInfo[i]
+              let progress
+              const contractAddress = mainInfo[5][i]
               const ChadInfo = await readContract(config, {
                 address: contractAddress,
                 abi: ChadAbi,
                 functionName: 'getFunBasicInfo',
                 chainId: Number(chainId)
               })
-
-              let startTime = Number(mainInfo[0][i])
-              const lpCreated = lpCreatedInfo[i]
-              let progress
-              const contractAddress = mainInfo[5][i]
               const virtualLpAmounts = Number(mainInfo[2][i]) * ethPrice
               const virtualLpTokenAmounts = Number(mainInfo[1][i]) / 10 ** 18
-              const tokenPrice = Number(mainInfo[3][i])
+              const tokenPrice = Number(mainInfo[3][i]) * ethPrice / 10 ** 12
               setTokenPrice(tokenPrice)
               const website = otherInfo[2][i]
               const twitter = otherInfo[3][i]
@@ -115,6 +113,7 @@ const App = () => {
               let dexAddress = routerInfo[i]
               let dexName = dexAddress === melegaRouters[chainId] ? 'MelegaSwap' : chainId === 56 ? 'PancakeSwap' : 'Uniswap'
               // const featureTime = Number(featureInfo[i])
+
               const featureTime = 0
               const chadData = {
                 chainId,
@@ -131,14 +130,14 @@ const App = () => {
                 dexAddress: dexAddress,
                 devAddress: devAddress,
                 dexName: dexName,
-                marketCap: virtualLpAmounts / virtualLpTokenAmounts / 10 ** 9,
+                marketCap: Number(ChadInfo[0][0]) * tokenPrice / 10 ** 18,
                 website: website,
                 twitter: twitter,
                 telegram: telegram,
                 blockchainLogoUrl: blockchainLogoUrl,
                 raisingPercent: raisingPercent,
                 featureTime,
-                lpCreated
+                lpCreated,
               }
               setChadListData(prevState => [...prevState, chadData])
             }
