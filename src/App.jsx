@@ -21,7 +21,7 @@ import {
 import {createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react';
 import { config } from "./config.jsx";
 
-const projectId = '4807d388fe495226b7fc14743af2e1d9'
+const projectId = '75f0ab21a52cbff7e566bcc9be983646'
 
 // const { chains, publicClient, webSocketPublicClient } = configureChains(
 //   [

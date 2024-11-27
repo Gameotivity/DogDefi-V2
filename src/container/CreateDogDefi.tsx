@@ -54,7 +54,7 @@ const App = () => {
   const [depositAmount, setDepositAmount] = useState('')
   const [accountBalance, setAccountBalance] = useState(0)
 
-
+  console.log("address", address)
   // const onConnectWallet = async () => {
   //   await open()
   //   setFirstConnect(true)
@@ -143,7 +143,7 @@ const App = () => {
               discord
             ],
             maxWallet.toString(),
-            Number(totalSupply * 10 ** 18).toString()
+            BigInt(totalSupply * 10 ** 18).toString()
           ],
         })
         console.log("---------------", create)
