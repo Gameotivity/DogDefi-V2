@@ -852,7 +852,8 @@ const App = () => {
                                   </>
                                 ) : (
                                 <>
-                                  <ConnectButton />
+                                  {/* <ConnectButton /> */}
+                                  <w3m-button />
                                 </>
                               )
                           }

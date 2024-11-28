@@ -115,7 +115,7 @@ const App = () => {
               let devAddress = mainInfo[6][i]
               let raisingPercent = Number(otherInfo[6][i]) / 100;
               let dexAddress = routerInfo[i]
-              let dexName = dexAddress === melegaRouters[chainId] ? 'MelegaSwap' : chainId === 56 ? 'PancakeSwap' : 'Uniswap'
+              let dexName = 'PancakeSwap'
               // const featureTime = Number(featureInfo[i])
 
               const featureTime = 0

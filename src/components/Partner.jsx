@@ -8,18 +8,18 @@ const Partner = () => {
   const [itemsToShow, setItemsToShow] = useState(5); // Default to 5 items
 
   const items = [
-    {
-      title: "MelegaSwap",
-      description: "MelegaSwap is the black decentralized exchange on BNB Chain providing friendly trading, project support as well as a wide range of farms and pools with HIGH APR.A total black design, an original name, a distinctive logo, a strong orientation towards marketing support for the listed projects are the key points of a project that aims to become one of the first DEX platforms in the world.",
-      imgUrl: "https://www.melega.finance/images/home/trade/MARCO@2x.png",
-      url: "https://www.melega.finance/"
-    },
-    {
-      title: "Melega Space",
-      description: "Melega Space is the Crypto Service Hub of the Melega Ecosystem and is specialized in providing the best marketing, legal and security audit services to crypto projects. Over the past year it has successfully served over 350 projects. Becoming a partner of Melega Space is synonymous with authority and solidity.",
-      imgUrl: "https://www.melega.finance/images/home/trade/MARCO@2x.png",
-      url: "https://www.melega.finance/"
-    },
+    // {
+    //   title: "MelegaSwap",
+    //   description: "MelegaSwap is the black decentralized exchange on BNB Chain providing friendly trading, project support as well as a wide range of farms and pools with HIGH APR.A total black design, an original name, a distinctive logo, a strong orientation towards marketing support for the listed projects are the key points of a project that aims to become one of the first DEX platforms in the world.",
+    //   imgUrl: "https://www.melega.finance/images/home/trade/MARCO@2x.png",
+    //   url: "https://www.melega.finance/"
+    // },
+    // {
+    //   title: "Melega Space",
+    //   description: "Melega Space is the Crypto Service Hub of the Melega Ecosystem and is specialized in providing the best marketing, legal and security audit services to crypto projects. Over the past year it has successfully served over 350 projects. Becoming a partner of Melega Space is synonymous with authority and solidity.",
+    //   imgUrl: "https://www.melega.finance/images/home/trade/MARCO@2x.png",
+    //   url: "https://www.melega.finance/"
+    // },
     {
       title: "PancakeSwap",
       description: "PancakeSwap is a decentralized exchange (DEX) built on BNB Chain that utilizes an automated market making (AMM) system. It is a fork of SushiSwap, with an almost identical codebase, but it has the advantage of cheaper and faster transactions due to being built on BSC. Additionally, it offers features such as yield farming across other protocols, lotteries, and initial farm offerings (IFO).",

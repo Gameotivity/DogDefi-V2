@@ -40,8 +40,8 @@ const Slider = ({ items, isListed }) => {
 
     const dexIcons = {
         'PancakeSwap': pancake,
-        'MelegaSwap': melega,
-        'Uniswap': uniswap
+        // 'MelegaSwap': melega,
+        // 'Uniswap': uniswap
     }
 
 

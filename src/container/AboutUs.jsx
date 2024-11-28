@@ -194,8 +194,8 @@ function AboutUs() {
                             fontSize: '14px'
                           }}
                         >
-                          When your token reaches a market cap of $69,000, its
-                          automatically listed on your choosen DEX. At the same
+                          When your token reaches a 150 bnb bonding curve, its
+                          automatically listed on Pancakeswap DEX. At the same
                           time, the liquidity pool is locked and the LP tokens
                           are burnt for enhanced safety
                         </div>
@@ -216,7 +216,7 @@ function AboutUs() {
                       </div>
                     </div>
                   </div>
-                  <div
+                  {/* <div
                     className="grid xl:grid-cols-1 gap-4"
                     style={{ marginTop: '20px' }}
                   >
@@ -294,7 +294,7 @@ function AboutUs() {
                       />
                     </div>
 
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex flex-col">
                   <div

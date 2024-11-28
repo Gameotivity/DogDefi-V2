@@ -365,7 +365,8 @@ const TopBar = () => {
                     </div>
                   </section>
                 )} */}
-                <ConnectButton />
+                {/* <ConnectButton /> */}
+                <w3m-button />
               </div>
               <button className='bg-black hover:bg-[#222] rounded-full p-2 flex lg:hidden' onClick={handleHamburgerClick}>
                 <img src={isExpanded ? iconCross : iconHamburger} className='w-[32px] h-[32px]' />
